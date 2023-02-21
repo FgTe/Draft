@@ -1,19 +1,25 @@
-\documentclass[a4paper]{article}
-\usepackage[T1]{fontenc}
+\documentclass{article}
+\usepackage[margin=1cm]{geometry}
 \usepackage{bm}
+\usepackage{amsmath}
 
 \begin{document}
-
-$(x+\mathbf{y})(x-\mathbf{y})=x^{2}-{\mathbf{y}}^{2}$
-
-$(x+\bm{y})(x-\bm{y}) \bm{=} x^{2}-{\bm{y}}^{2}$
-
-$\alpha + \bm{\alpha} < \beta + \bm{\beta}$
-
-$(x+y)(x-y)=x^{2}-y^{2}$
-
-{\boldmath $(x+y)(x-y)=x^{2}-y^{2}$ $\pi r^2$}
-
-$(x+\mathbf{y})(x-\mathbf{y})=x^{2}-{\mathbf{y}}^{2}$
-$\mathbf{\pi} r^2$ % bad use of \mathbf
+  \begin{align*}
+    b &= \vec{x_{1}} + \vec{y_{1}} + \vec{z_{1}}\\
+    c &= \vec{x_{2}} + \vec{y_{2}} + \vec{z_{2}}\\
+    a &= ( \vec{x_{1}} - \vec{x_{2}} ) + ( \vec{y_{1}} - \vec{y_{2}} ) + ( \vec{z_{1}} - \vec{z_{2}} )
+  \end{align*}
+  \begin{align*}
+    b^{2} - ( b\cos{\angle{A}} )^{2} &= a^{2} - ( c-b\cos{\angle{A}} )^{2}\\
+    &= a^{2} - c^{2} - ( b\cos{\angle{A}} )^{2} + 2bc\cos{\angle{A}}\\
+    b^{2} &= a^{2} - c^{2} + 2bc\cos{\angle{A}}\\
+    \frac{b^{2} + c^{2} - a^{2}}{2} &= bc\cos{\angle{A}}\\
+  \end{align*}
+  \begin{align*}
+    \frac{cb\sin{\angle{A}}}{2} = \frac{ac\sin{\angle{B}}}{2} = \frac{ab\sin{\angle{C}}}{2}\\
+    \frac{\sin{\angle{A}}}{a} = \frac{\sin{\angle{B}}}{b} = \frac{\sin{\angle{C}}}{c}
+  \end{align*}
+  \begin{align*}
+    bc\sin{\angle(A)}
+  \end{align*}
 \end{document}
