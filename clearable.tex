@@ -1,0 +1,34 @@
+\documentclass{article}
+
+\usepackage[margin=1cm]{geometry}
+\usepackage{amsmath}
+\usepackage{fontspec}
+\setmainfont{FandolSong-Regular.otf}
+
+\begin{document}
+We can treat $\frac{1}{F'(x)}$ as a constant in the expression:
+
+$$\int \frac{f'(x)}{F'(x)}dx = \frac{1}{F'(x)} \int f'(x) \cdot \frac{1}{F'(x)}du$$
+
+because it does not depend on the variable of integration, which is $u$. Let me explain this in more detail.
+
+When we make the substitution $u = F(x)$, we are essentially changing the variable of integration from $x$ to $u$. So, we need to express the differential $dx$ in terms of $du$ to rewrite the integral in terms of $u$. This is done using the chain rule:
+
+$$dx = \frac{du}{F'(x)}$$
+
+Substituting this into the original integral, we get:
+
+$$\int \frac{f'(x)}{F'(x)}dx = \int \frac{f'(x)}{du} \cdot \frac{dx}{F'(x)}du$$
+
+Simplifying this expression, we get:
+
+$$\int \frac{f'(x)}{F'(x)}dx = \frac{1}{F'(x)} \int f'(x) \cdot \frac{1}{F'(x)}du$$
+
+Note that in this expression, $\frac{1}{F'(x)}$ is a constant with respect to the variable of integration $u$. This is because $u$ is a function of $x$, and $\frac{1}{F'(x)}$ does not depend on $u$. Therefore, we can factor it out of the integral and treat it as a constant:
+
+$$\int \frac{f'(x)}{F'(x)}dx = \frac{1}{F'(x)} \int \frac{df(u)}{du}du = \frac{1}{F'(x)} f(u) + C$$
+
+$$\int \frac{f'(x)}{F'(x)}dx = \frac{1}{F'(x)} f(F(x)) + C$$
+
+So, we can treat $\frac{1}{F'(x)}$ as a constant in this context because it does not depend on the variable of integration $u$.
+\end{document}

@@ -1,0 +1,44 @@
+\documentclass{article}
+
+\usepackage[margin=1cm]{geometry}
+\usepackage{amsmath}
+\usepackage{fontspec}
+\setmainfont{FandolSong-Regular.otf}
+
+\begin{document}
+设：
+\[
+  \lim_{x \rightarrow x_{0}}{f\left( x \right)}=A
+\]
+
+求证：
+\[
+  \lim_{x \rightarrow x_0}{\frac{f\left( x \right)}{g\left( x \right)}}=\frac{A}{B}
+\]
+
+证：
+\[
+  \lim_{x \rightarrow x_0}{f\left( x \right)}=A \text{则} \forall \quad \varepsilon_1 \exists \delta_1 \text{当} \left| x - x_0 \right|<\delta_1 \text{时} \left| f\left( x \right)-A \right|<\varepsilon_1
+\]
+\[
+  \lim_{x \rightarrow x_0}{g\left( x \right)}=B \text{则} \forall \quad \varepsilon_2 \exists \delta_2 \text{当} \left| x - x_0 \right|<\delta_2 \text{时} \left| f\left( x \right)-B \right|<\varepsilon_2
+\]
+\begin{align*}
+  \left| \frac{f\left( x \right)}{g\left( x \right)}-\frac{A}{B} \right| &= \left| \frac{f\left( x \right)}{g\left( x \right)}-\frac{A}{B}-\frac{A}{g\left( x \right)}+\frac{A}{g\left(x\right)} \right| \\
+  & =\left| \frac{f\left( x \right)-A}{g\left( x \right)}-\frac{A\left( g\left( x \right)-B \right)}{Bg\left( x \right)} \right| \\
+  & =\left| \frac{B\left( f\left( x \right)-A \right)-A\left( g\left( x \right)-B \right)}{Bg\left( x \right)} \right| \\
+  & \leq\frac{\left| B \right|\left| f\left( x \right)-A \right|+\left| A \right|\left| g\left(x\right)-B \right|}{\left|B\right|\left|g\left(x\right)\right|} \tag*{(1)}\label{1} \\
+\end{align*}
+\[
+  \text{因为} \exists \delta_3 \text{当} \left|x-x_0\right|<\delta_3 \text{时} \left| g\left(x\right)\right|>\left|\frac{B}{2}\right| \quad \left|\frac{1}{g\left(x\right)}\right|<\left|\frac{2}{B}\right|
+\]
+\[
+  \ref{1} < \frac{\left|B\right|\left|f\left(x\right)-A\right|+\left|A\right|\left|g\left(x\right)-B\right|}{\left|B\right|}\times\left|\frac{2}{B}\right|
+\]
+\[
+  \forall \varepsilon \text{当} \varepsilon_1=\frac{\left|B\right|\varepsilon}{4} \quad \varepsilon_2=\frac{B^{2}\varepsilon}{4\left|A\right|}
+\]
+\[
+  \text{取} \delta=min\left(\delta_1,\delta_2,\delta_3\right) \text{取} \left|x-x_0\right|<\delta \text{时} \left|\frac{f\left(x\right)}{g\left(x\right)}-\frac{A}{B}\right|<\varepsilon
+\]
+\end{document}

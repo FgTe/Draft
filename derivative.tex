@@ -2,11 +2,26 @@
 
 \usepackage[margin=1cm]{geometry}
 \usepackage{amsmath}
-% \usepackage{fontspec}
+\usepackage{fontspec}
 % \setmainfont{texgyretermes-regular.otf}
 % \newfontfamily\cjkfont{FandolSong-Regular.otf}
+\setmainfont{FandolSong-Regular.otf}
 
 \begin{document}
+  % \begin{align}
+  %   \begin{aligned}
+  %   \end{aligned}
+  % \end{align}
+  \begin{align}
+    \begin{aligned}
+      \int \frac{f'(x)}{F'(x)} dx \\
+      u = F(x) \quad F'(x) = \frac{\Delta{u}}{\Delta{x}} \\
+      x = G(u) \\
+      f'(x) = f'(G(u))G'(x) \\
+      f'(G(u)) \frac{1}{F'(x)} \\
+      \frac{f'(x)}{F'(x)} = 
+    \end{aligned}
+  \end{align}
   \begin{align}
     \begin{aligned} %拉格朗日中值定理
       & \frac{f\left( a \right) - f\left(b\right)}{a - b} = f'\left( \xi  \right) \\
@@ -18,16 +33,28 @@
   \begin{align}
     \begin{aligned} %柯西中值定理
       & \frac{f\left( a \right) - f\left(b\right)}{F\left(a\right) - F\left(b\right)} = \frac{f'\left( \xi  \right)}{F'\left( \xi \right)} \\
+      & \frac{f'(x)}{F'(x)} = \frac{\Delta{f(x)}}{\Delta{x}} \frac{\Delta{x}}{\Delta{F(x)}} \\
+      & Y = f(x) \quad X = F(x) \\
+      & g(X) = Y \\
+      & g'(x) = \frac{f'(x)}{F'(x)} \\
+      & t = F(x) \quad F'(x) = \frac{\Delta{t}}{\Delta{x}} \quad F^{-1}(t) = \frac{\Delta{x}}{\Delta{t}} \\
+      & \int \frac{f\left( a \right) - f\left(b\right)}{F\left(a\right) - F\left(b\right)} - \frac{f'\left( x \right)}{F'\left( x \right)} \\
+      = & \int \frac{f\left( a \right) - f\left(b\right)}{F\left(a\right) - F\left(b\right)} - g'(X) \\
+      = & \frac{f\left( a \right) - f\left(b\right)}{F\left(a\right) - F\left(b\right)} X - g(X) + C \\
+      = & \frac{f\left( a \right) - f\left(b\right)}{F\left(a\right) - F\left(b\right)} F(x) - f(x) + C \\
+      = & \frac{f\left( a \right) F(x) - f\left(b\right) F(x) - f\left(x\right) F(a) + f\left(x\right) F(b)}{F(a) - F(b)} + C
+     \end{aligned}
+  \end{align}
+  \begin{align} %洛必达法则
+    \begin{aligned}
+      x \to x_{0} \quad f(x) \to 0 \quad F(x) \to 0 \\
+      \lim_{x \to x_{0}}\frac{f(x)}{F(x)} = \frac{f'(x)}{F'(x)} \\
     \end{aligned}
   \end{align}
-  \begin{align*}
-    \lim_{x \to min} \\
-    \frac{f\left(x\right)}{g\left(x\right)} - \frac{f'\left(x\right)}{g'\left(x\right)} = 0 \\
-  \end{align*}
   \begin{align}
     \begin{aligned}
       \lim_{\Delta{x} \to 0}&\frac{\left(x+\Delta{x}\right)^{\frac{a}{b}} - x^{\frac{a}{b}}}{\Delta{x}} \\
-      = &x^{\frac{a}{b}} \frac{ \left( 1 + \frac{\Delta{x}}{x} \right)^{\frac{a}{b}} - 1}{\Delta{x}} \\
+      =& x^{\frac{a}{b}} \frac{ \left( 1 + \frac{\Delta{x}}{x} \right)^{\frac{a}{b}} - 1}{\Delta{x}} \\
     \end{aligned}
   \end{align}
   \[
