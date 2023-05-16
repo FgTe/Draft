@@ -12,16 +12,15 @@
   %   \begin{aligned}
   %   \end{aligned}
   % \end{align}
-  \begin{align}
-    \begin{aligned}
-      \int \frac{f'(x)}{F'(x)} dx \\
-      u = F(x) \quad F'(x) = \frac{\Delta{u}}{\Delta{x}} \\
-      x = G(u) \\
-      f'(x) = f'(G(u))G'(x) \\
-      f'(G(u)) \frac{1}{F'(x)} \\
-      \frac{f'(x)}{F'(x)} = 
-    \end{aligned}
-  \end{align}
+  \begin{gather*}
+    % \begin{aligned}
+      % \int \frac{f'(x)}{F'(x)} dx \\
+      % u = F(x) \quad F'(x) = \frac{du}{dx} \\
+      % x = G(u) \quad G'(u) = \frac{dx}{du} \\
+      % f'(x)dx = f'(G(u))G'(u)du \\
+      % \frac{f'(x)}{F'(x)}dx = f'(G(u))G'(u) \frac{1}{F'(x)}du = f'(G(u))G'(u)G'(u)du \\
+    % \end{aligned}
+  \end{gather*}
   \begin{align}
     \begin{aligned} %拉格朗日中值定理
       & \frac{f\left( a \right) - f\left(b\right)}{a - b} = f'\left( \xi  \right) \\
@@ -30,34 +29,40 @@
       =& \frac{f\left( a \right) x - f\left(b\right) x - f\left(x\right) a + f\left(x\right) b}{a - b} + C
     \end{aligned}
   \end{align}
-  \begin{align}
-    \begin{aligned} %柯西中值定理
-      & \frac{f\left( a \right) - f\left(b\right)}{F\left(a\right) - F\left(b\right)} = \frac{f'\left( \xi  \right)}{F'\left( \xi \right)} \\
-      & \frac{f'(x)}{F'(x)} = \frac{\Delta{f(x)}}{\Delta{x}} \frac{\Delta{x}}{\Delta{F(x)}} \\
-      & Y = f(x) \quad X = F(x) \\
-      & g(X) = Y \\
-      & g'(x) = \frac{f'(x)}{F'(x)} \\
-      & t = F(x) \quad F'(x) = \frac{\Delta{t}}{\Delta{x}} \quad F^{-1}(t) = \frac{\Delta{x}}{\Delta{t}} \\
-      & \int \frac{f\left( a \right) - f\left(b\right)}{F\left(a\right) - F\left(b\right)} - \frac{f'\left( x \right)}{F'\left( x \right)} \\
-      = & \int \frac{f\left( a \right) - f\left(b\right)}{F\left(a\right) - F\left(b\right)} - g'(X) \\
-      = & \frac{f\left( a \right) - f\left(b\right)}{F\left(a\right) - F\left(b\right)} X - g(X) + C \\
-      = & \frac{f\left( a \right) - f\left(b\right)}{F\left(a\right) - F\left(b\right)} F(x) - f(x) + C \\
-      = & \frac{f\left( a \right) F(x) - f\left(b\right) F(x) - f\left(x\right) F(a) + f\left(x\right) F(b)}{F(a) - F(b)} + C
-     \end{aligned}
-  \end{align}
-  \begin{align} %洛必达法则
+  \begin{gather} %柯西中值定理
+    \begin{gathered}
+      \frac{f\left( a \right) - f\left(b\right)}{F\left(a\right) - F\left(b\right)} = \frac{f'\left( \xi  \right)}{F'\left( \xi \right)} \\
+      ( f(a) - f(b) ) F'(\xi) - ( F(a) - F(b) ) f'(\xi) = 0 \\
+      \int ( f(a) - f(b) ) F'(x) - ( F(a) - F(b) ) f'(x) \quad dx \\
+      = ( f(a) - f(b) ) F(x) - ( F(a) - F(b) ) f(x)
+    \end{gathered}
+    % \begin{aligned}
+      % & \frac{f'(x)}{F'(x)} = \frac{\Delta{f(x)}}{\Delta{x}} \frac{\Delta{x}}{\Delta{F(x)}} \\
+      % & Y = f(x) \quad X = F(x) \\
+      % & g(X) = Y \\
+      % & g'(x) = \frac{f'(x)}{F'(x)} \\
+      % & t = F(x) \quad F'(x) = \frac{\Delta{t}}{\Delta{x}} \quad F^{-1}(t) = \frac{\Delta{x}}{\Delta{t}} \\
+      % & \int \frac{f\left( a \right) - f\left(b\right)}{F\left(a\right) - F\left(b\right)} - \frac{f'\left( x \right)}{F'\left( x \right)} \\
+      % = & \int \frac{f\left( a \right) - f\left(b\right)}{F\left(a\right) - F\left(b\right)} - g'(X) \\
+      % = & \frac{f\left( a \right) - f\left(b\right)}{F\left(a\right) - F\left(b\right)} X - g(X) + C \\
+      % = & \frac{f\left( a \right) - f\left(b\right)}{F\left(a\right) - F\left(b\right)} F(x) - f(x) + C \\
+      % = & \frac{f\left( a \right) F(x) - f\left(b\right) F(x) - f\left(x\right) F(a) + f\left(x\right) F(b)}{F(a) - F(b)} + C
+    % \begin{aligned}
+  \end{gather}
+  \begin{gather} %洛必达法则
+    \begin{gathered}
+      x \to x_{0} \Rightarrow  f(x) \to 0 \Rightarrow  F(x) \to 0 \\
+      \lim_{x \to x_{0}}\frac{f(x)}{F(x)} = \frac{f'(x_{0})}{F'(x_{0})} \\
+      x - \Delta{x} = x_{0} \quad x \to x_0 \Rightarrow \Delta{x} \to 0 \\
+      \lim_{x \to x_{0}} \frac{f(x)}{F(x)}
+      = \lim_{\Delta{x} \to 0} \frac{f(x_{0} + \Delta{x})}{F(x_{0} + \Delta{x})}
+    \end{gathered}
+  \end{gather}
+  \begin{gather}
     \begin{aligned}
-      x \to x_{0} \quad f(x) \to 0 \quad F(x) \to 0 \\
-      \lim_{x \to x_{0}}\frac{f(x)}{F(x)} = \frac{f'(x)}{F'(x)} \\
-    \end{aligned}
-  \end{align}
-  \begin{align}
-    \begin{aligned}
-      \lim_{\Delta{x} \to 0}&\frac{\left(x+\Delta{x}\right)^{\frac{a}{b}} - x^{\frac{a}{b}}}{\Delta{x}} \\
+      \lim_{\Delta{x} \to 0}& \frac{\left(x+\Delta{x}\right)^{\frac{a}{b}} - x^{\frac{a}{b}}}{\Delta{x}} \\
       =& x^{\frac{a}{b}} \frac{ \left( 1 + \frac{\Delta{x}}{x} \right)^{\frac{a}{b}} - 1}{\Delta{x}} \\
-    \end{aligned}
-  \end{align}
-  \[
+    \end{aligned} \\
     \begin{aligned}
       \lim_{\Delta{x} \to 0} \frac{\left( 1 + \frac{\Delta{x}}{x} \right)^{\frac{a}{b}} - 1} {\frac{a}{b} \frac{\Delta{x}}{x}} \\
       \left( 1 + \frac{\Delta{x}}{x} \right)^{\frac{x}{\Delta{x}}} &= e \\
@@ -77,7 +82,7 @@
       \Delta{x} \to 0 &\Rightarrow t \to 1 \\
       &\lim_{\Delta{x} \to 0} \frac{ \left( 1 + \frac{\Delta{x}}{x} \right)^{\frac{a}{b}} - 1}{\Delta{x}} \\
       = &\lim_{t \to 1} \frac{1}{x} \frac{t^{a} - 1}{t^{b} - 1} \\
-      = &\lim_{t \to 1} \frac{1}{x} \frac{a}{b} \frac{t^{a -1}}{t^{b - 1}} \qquad \text{(L'Hôpital's rule)} %洛必达法则%
+      = &\lim_{t \to 1} \frac{1}{x} \frac{a}{b} \frac{t^{a -1}}{t^{b - 1}} \qquad \text{(洛必达法则)} %%
     \end{aligned}
-  \]
+  \end{gather}
 \end{document}

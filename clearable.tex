@@ -6,29 +6,32 @@
 \setmainfont{FandolSong-Regular.otf}
 
 \begin{document}
-We can treat $\frac{1}{F'(x)}$ as a constant in the expression:
-
-$$\int \frac{f'(x)}{F'(x)}dx = \frac{1}{F'(x)} \int f'(x) \cdot \frac{1}{F'(x)}du$$
-
-because it does not depend on the variable of integration, which is $u$. Let me explain this in more detail.
-
-When we make the substitution $u = F(x)$, we are essentially changing the variable of integration from $x$ to $u$. So, we need to express the differential $dx$ in terms of $du$ to rewrite the integral in terms of $u$. This is done using the chain rule:
-
-$$dx = \frac{du}{F'(x)}$$
-
-Substituting this into the original integral, we get:
-
-$$\int \frac{f'(x)}{F'(x)}dx = \int \frac{f'(x)}{du} \cdot \frac{dx}{F'(x)}du$$
-
-Simplifying this expression, we get:
-
-$$\int \frac{f'(x)}{F'(x)}dx = \frac{1}{F'(x)} \int f'(x) \cdot \frac{1}{F'(x)}du$$
-
-Note that in this expression, $\frac{1}{F'(x)}$ is a constant with respect to the variable of integration $u$. This is because $u$ is a function of $x$, and $\frac{1}{F'(x)}$ does not depend on $u$. Therefore, we can factor it out of the integral and treat it as a constant:
-
-$$\int \frac{f'(x)}{F'(x)}dx = \frac{1}{F'(x)} \int \frac{df(u)}{du}du = \frac{1}{F'(x)} f(u) + C$$
-
-$$\int \frac{f'(x)}{F'(x)}dx = \frac{1}{F'(x)} f(F(x)) + C$$
-
-So, we can treat $\frac{1}{F'(x)}$ as a constant in this context because it does not depend on the variable of integration $u$.
+  \begin{align*}
+    & \int_{0}^{+\infty} \frac{1}{\sqrt{x}}e^{-\sqrt{x}} dx \\
+    =& \int_{0}^{+\infty} e^{-\sqrt{x}}\frac{d}{dx}2\sqrt{x} dx \\
+    =& \left[e^{-\sqrt{x}}2\sqrt{x}\right]_{0}^{+\infty} - \int_{0}^{+\infty}2 \sqrt{x}\frac{d}{dx}e^{-\sqrt{x}} dx
+  \end{align*}
+  \begin{gather*}
+    \left[x\right]^{1}_{0}
+    S = 2\pi\frac{a}{2h}(h - x)\Delta{x}\\
+    p = v(h - x)\\
+    \begin{aligned}
+      P = Sp =& \int v(h - x)2\pi\frac{a}{2h}\Delta{x} \\
+      =&2v\pi\frac{a}{2h}\int (h - x)^{2} \Delta{x}
+    \end{aligned}
+  \end{gather*}
+  \begin{gather*}
+    \theta = \tan{t} \\
+    \begin{aligned}
+      & \int \sqrt{\theta^{2} + 1} \\
+      =& \int \sqrt{\tan^{2}{t} + 1} \sec^{2}{t} \\
+      =& \int \sqrt{\sec^{2}{t}} \sec^{2}{t} = \int \sec^{3}{t} \\
+      =& \tan{t}\sec{t} - \int \tan{t}\frac{\sin{t}}{\cos^{2}{t}} \\
+      =& \tan{t}\sec{t} - \int \tan^{2}{t}\sec{t} \\
+      =& \tan{t}\sec{t} - \int (\sec^{2}{t} - 1)\sec{t} \\
+      =& \tan{t}\sec{t} - ( \int \sec^{3}{t} - \int \sec{t} ) \\
+      =& \frac{\tan{t}\sec{t} + \int \sec{t}}{2} \qquad \frac{1}{\frac{1 + \sin{t}}{\cos{t}}}\frac{\sin{t} + 1}{\cos^{2}{t}} \\
+      =& \frac{\tan{t}\sec{t} + \ln{\sec{t} + \tan{t}}}{2}
+    \end{aligned}
+  \end{gather*}
 \end{document}

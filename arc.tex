@@ -1,0 +1,38 @@
+\documentclass{article}
+
+\usepackage[margin=1cm]{geometry}
+\usepackage{amsmath}
+\usepackage{fontspec}
+\setmainfont{FandolSong-Regular.otf}
+
+\begin{document}
+  \begin{gather*}
+    \left\{\begin{aligned}
+      x &= r\cos{\theta} \\
+      y &= r\sin{\theta}
+    \end{aligned}\right.
+    \qquad
+    \left\{\begin{aligned}
+      x^{2} + y^{2} &= r \\
+      \frac{x}{y} &= \tan{\theta}
+    \end{aligned}\right. \\
+    \begin{aligned}
+      f(\theta) &= r(\theta)\cos{\theta} \\
+      f'(\theta) &=  r'(\theta)\cos{\theta} - r(\theta)\sin{\theta}
+    \end{aligned}
+    \qquad
+    \begin{aligned}
+      F(\theta) &= r(\theta)\sin{\theta} \\
+      F'(\theta) &= r'(\theta)\sin{\theta} + r(\theta)\cos{\theta}
+    \end{aligned} \\
+    \begin{aligned}
+      ds &= \sqrt{dx^{2} + dy^{2}} \\
+      &= \sqrt{f'^{2}(\theta) + F'^{2}(\theta)} d\theta \\
+      &= \sqrt{\begin{aligned}
+        &r'^{2}(\theta)\cos^{2}{\theta} - 2 r'(\theta)\cos{\theta} r(\theta)\sin{\theta} + r^{2}(\theta)\sin^{2}{\theta} \\
+        + &r'^{2}(\theta)\sin^{2}{\theta} + 2 r'(\theta)\sin{\theta} r(\theta)\cos{\theta} + r^{2}(\theta)\cos^{2}{\theta}
+      \end{aligned}} \quad d\theta \\
+      &= \sqrt{r'^{2}(\theta) + r^{2}(\theta)} d\theta
+    \end{aligned}
+  \end{gather*}
+\end{document}
