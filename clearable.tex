@@ -5,12 +5,113 @@
 \usepackage{fontspec}
 \setmainfont{FandolSong-Regular.otf}
 
+\newcommand\D[1]{\Delta{#1}}
+\newcommand\F[2]{\frac{#1}{#2}}
+\newcommand\di[1]{\text{d}#1}
+
 \begin{document}
-  \begin{align*}
-    & \int_{0}^{+\infty} \frac{1}{\sqrt{x}}e^{-\sqrt{x}} dx \\
-    =& \int_{0}^{+\infty} e^{-\sqrt{x}}\frac{d}{dx}2\sqrt{x} dx \\
-    =& \left[e^{-\sqrt{x}}2\sqrt{x}\right]_{0}^{+\infty} - \int_{0}^{+\infty}2 \sqrt{x}\frac{d}{dx}e^{-\sqrt{x}} dx
-  \end{align*}
+  \[\frac{\Delta{Y}}{\Delta{X}} = \frac{aX + bY}{cX + eY}\]
+  To solve the given first-order differential equation, let's rewrite it in the standard form:
+
+\[\frac{dy}{dx} = \frac{aX + bY}{cX + eY}.\]
+
+We want to find a function Y(X) that satisfies this equation. First, we can try to determine if this differential equation is separable, homogeneous, or exact.
+
+Separable: A separable differential equation can be written as the product of a function of X and a function of Y, i.e., \(\frac{dy}{dx}=f(X)g(Y)\). In this case, the given equation is not separable, as we cannot separate the variables X and Y.
+
+Homogeneous: A homogeneous differential equation has the form \( \frac{dy}{dx}=f(\frac{Y}{X})\). We can try to find a substitution to make the equation homogeneous. Let's try the substitution \(v=\frac{Y}{X}\), which implies \(Y=vX\). Differentiating Y with respect to X, we get:
+
+\[\frac{dy}{dx}=v + x\frac{dv}{dx}.\]
+
+Now, substitute (Y = vX) into the original equation:
+
+\[\frac{dy}{dx} =v + x\frac{dv}{dx} = \frac{aX + bvX}{cX + evX} = \frac{X(a+bv)}{X(c+ev)}.\]
+
+Canceling the X's and simplifying, we get:
+\begin{align*}
+  v + x\frac{\di{v}}{\di{x}} &= \frac{a + bv}{c + ev} \\
+  \frac{x}{\di{x}} &= \frac{a + bv}{\di{v}(c + ev)} - \frac{v}{\di{v}} \\
+  \frac{1}{x}\di{x} &= \frac{c + ev}{a + bv - v(c + ev)} \di{v} \\
+  &= \frac{c + ev}{a - cv + v(b - ev)} \di{v}\\
+  x\frac{\di{v}}{\di{x}} &= \frac{a + bv - cv - ev^2}{c + ev} \\
+  &= \frac{a + bv - cv - ev^2}{c + ev} \\
+  &= \frac{a - cv + v(b- ev)}{c + ev} \\
+  x\frac{\di{v}}{\di{x}} - \frac{v(b- ev)}{c + ev} &= \frac{a - cv}{c + ev} \\
+  x\frac{\di{v}}{\di{x}} \frac{c + ev}{b - ev} - v &= \frac{a - cv}{b - ev} 
+\end{align*}
+\[\frac{dv}{dx} = \frac{a - cv}{b - ev}.\]
+
+This equation is now separable. Rearrange to separate the variables:
+
+\[\frac{dv}{a-cv} = \frac{dx}{b-ex}.\]
+
+Now, integrate both sides:
+
+\[\int \frac{dv}{a-cv} = \int \frac{dx}{b-ex}.\]
+
+Performing the integration, we obtain:
+
+\[-\frac{1}{c}\ln|a-cv| = -\frac{1}{e}\ln|b-ex| + C,\]
+
+where C is the integration constant. Exponentiate both sides to remove the logarithms:
+
+\[(a-cv)^{-\frac{1}{c}} = (b-ex)^{-\frac{1}{e}}e^{C'}.\]
+
+We can rewrite this as:
+
+\[(a-cv)^{\frac{1}{c}} = (b-ex)^{\frac{1}{e}}e^{-C'},\]
+
+where \(C' = -C\). Now, recall that \(v = \frac{Y}{X}\). Substituting back, we have:
+
+\[\left(a-c\frac{Y}{X}\right)^{\frac{1}{c}} = \left(b-eX\right)^{\frac{1}{e}}e^{-C'}.\]
+
+This is the general solution to the given differential equation. The constant C' can be determined by an initial condition, if provided.
+  \begin{gather*}
+    y = ax \\
+    y = bx \\
+    (a\sin{C})^2 + (b-a\cos{C})^2 = c^2 \\
+    a^2 - a^2\cos^2{C} + b^2 - 2ab\cos{C} + a^2\cos^2 = c^2 \\
+    \cos{C} = \frac{a^2 + b^2 - c^2}{2ab}
+  \end{gather*}
+  \begin{gather*}
+    u = \frac{x}{y} \\
+    \begin{gathered}
+      u = U(t) \quad x = X(t) \quad y = Y(t)
+    \end{gathered} \\
+    \begin{aligned}
+      U(t) &= \F{Y(t)}{X(t)} \\
+      \F{\di{U}(t)}{\di{t}} &= \left( \F{Y(t + \D{t})X(t) - Y(t)X(t + \D{t})}{X(t + \D{t})X(t)} \right) \F{1}{\D{t}} \\
+      &= \F{Y'(t)X(t) - Y(t)X'(t)}{X^2(t)} \\
+      \di{U}(t) &= \F{\di{Y}(t)X(t) - Y(t)\di{X}(t)}{X^2(t)} \\
+      \di{u} & = \F{\di{y}x - \di{x}y}{x^{2}} \\
+      \F{\di{u}}{\di{x}} &= \F{\di{y}}{\di{x}}\F{1}{x} - \F{y}{x^2} \\
+      x\left( \F{\di{u}}{\di{x}} + \F{y}{x^2} \right) &= \F{\di{y}}{\di{x}} \\
+      x\F{\di{u}}{\di{x}} + u &= \F{\di{y}}{\di{x}} \\
+      \di{y} &= \di{u}x + u\di{x} \\
+    \end{aligned} \\
+    \begin{gathered}
+      \ln{\F{y}{x}}\di{y} + \F{y}{x}\di{x} = 0 \\
+    \end{gathered} \\
+    \begin{aligned}
+      \ln{u}(\di{u}x + u\di{x}) + u\di{x} &= 0 \\ 
+      \ln{u}\di{u}x + ( \ln{u} + 1 ) u\di{x} &= 0 \\
+      \ln{u}\di{u} + ( \ln{u} + 1 ) u\F{\di{x}}{x} &= 0 \\
+      -\F{\di{x}}{x} = \F{\ln{u}}{\left( \ln{u} + 1 \right)u}\di{u}n
+    \end{aligned}
+  \end{gather*}
+  \begin{gather*}
+    ax^{2}+bx+c = 0 \\
+    x^{2}+\frac{b}{a}x+\frac{c}{a} = 0 \\
+    \begin{aligned}
+      z+\frac{c}{a} =& \left(\frac{b}{2a}\right)^{2} \\
+      z =& \left(\frac{b}{2a}\right)^{2} - \frac{c}{a} \\
+    \end{aligned} \\
+    \begin{aligned}
+      \left(x + \frac{b}{2a}\right)^{2} - \left( \left(\frac{b}{2a}\right)^{2} - \frac{c}{a} \right) &= 0 \\
+      \left(x + \frac{b}{2a}\right)^{2} &= \left( \left(\frac{b}{2a}\right)^{2} - \frac{c}{a} \right) \\
+      x &= \pm\frac{\sqrt{b^{2}-4ac}}{2a} - \frac{b}{2a}
+    \end{aligned}
+  \end{gather*}
   \begin{gather*}
     \left[x\right]^{1}_{0}
     S = 2\pi\frac{a}{2h}(h - x)\Delta{x}\\
