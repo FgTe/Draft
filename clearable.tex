@@ -10,62 +10,24 @@
 \newcommand\di[1]{\text{d}#1}
 
 \begin{document}
-  \[\frac{\Delta{Y}}{\Delta{X}} = \frac{aX + bY}{cX + eY}\]
-  To solve the given first-order differential equation, let's rewrite it in the standard form:
-
-\[\frac{dy}{dx} = \frac{aX + bY}{cX + eY}.\]
-
-We want to find a function Y(X) that satisfies this equation. First, we can try to determine if this differential equation is separable, homogeneous, or exact.
-
-Separable: A separable differential equation can be written as the product of a function of X and a function of Y, i.e., \(\frac{dy}{dx}=f(X)g(Y)\). In this case, the given equation is not separable, as we cannot separate the variables X and Y.
-
-Homogeneous: A homogeneous differential equation has the form \( \frac{dy}{dx}=f(\frac{Y}{X})\). We can try to find a substitution to make the equation homogeneous. Let's try the substitution \(v=\frac{Y}{X}\), which implies \(Y=vX\). Differentiating Y with respect to X, we get:
-
-\[\frac{dy}{dx}=v + x\frac{dv}{dx}.\]
-
-Now, substitute (Y = vX) into the original equation:
-
-\[\frac{dy}{dx} =v + x\frac{dv}{dx} = \frac{aX + bvX}{cX + evX} = \frac{X(a+bv)}{X(c+ev)}.\]
-
-Canceling the X's and simplifying, we get:
-\begin{align*}
-  v + x\frac{\di{v}}{\di{x}} &= \frac{a + bv}{c + ev} \\
-  \frac{x}{\di{x}} &= \frac{a + bv}{\di{v}(c + ev)} - \frac{v}{\di{v}} \\
-  \frac{1}{x}\di{x} &= \frac{c + ev}{a + bv - v(c + ev)} \di{v} \\
-  &= \frac{c + ev}{a - cv + v(b - ev)} \di{v}\\
-  x\frac{\di{v}}{\di{x}} &= \frac{a + bv - cv - ev^2}{c + ev} \\
-  &= \frac{a + bv - cv - ev^2}{c + ev} \\
-  &= \frac{a - cv + v(b- ev)}{c + ev} \\
-  x\frac{\di{v}}{\di{x}} - \frac{v(b- ev)}{c + ev} &= \frac{a - cv}{c + ev} \\
-  x\frac{\di{v}}{\di{x}} \frac{c + ev}{b - ev} - v &= \frac{a - cv}{b - ev} 
-\end{align*}
-\[\frac{dv}{dx} = \frac{a - cv}{b - ev}.\]
-
-This equation is now separable. Rearrange to separate the variables:
-
-\[\frac{dv}{a-cv} = \frac{dx}{b-ex}.\]
-
-Now, integrate both sides:
-
-\[\int \frac{dv}{a-cv} = \int \frac{dx}{b-ex}.\]
-
-Performing the integration, we obtain:
-
-\[-\frac{1}{c}\ln|a-cv| = -\frac{1}{e}\ln|b-ex| + C,\]
-
-where C is the integration constant. Exponentiate both sides to remove the logarithms:
-
-\[(a-cv)^{-\frac{1}{c}} = (b-ex)^{-\frac{1}{e}}e^{C'}.\]
-
-We can rewrite this as:
-
-\[(a-cv)^{\frac{1}{c}} = (b-ex)^{\frac{1}{e}}e^{-C'},\]
-
-where \(C' = -C\). Now, recall that \(v = \frac{Y}{X}\). Substituting back, we have:
-
-\[\left(a-c\frac{Y}{X}\right)^{\frac{1}{c}} = \left(b-eX\right)^{\frac{1}{e}}e^{-C'}.\]
-
-This is the general solution to the given differential equation. The constant C' can be determined by an initial condition, if provided.
+  \begin{gather*}
+    y = Y(x) \qquad u(x) = \frac{Q(x)}{Y(x)} \qquad v(x) = e^{\int u(x)\di{x}}\\
+    \begin{aligned}
+      \frac{\di{y}}{\di{x}} &= Q(x) - P(x)y \\
+      &= Q(x) - P(x)Y(x) \\
+      \frac{\di{y}}{Y(x)} &=  \left( \frac{Q(x)}{Y(x)} - P(x) \right)\di{x} \\
+      \int\frac{1}{Y(x)}\di{y} &= \int\left(u(x) - P(x)\right)\di{x} \\
+      \ln{y} &= \int\left(u(x) - P(x)\right)\di{x}\\
+      y &= e^{\int u(x)\di{x} -\int P(x)\di{x}} \\
+      &= e^{\int u(x)\di{x}} \times e^{-\int P(x)\di{x}} \\
+      \frac{\di{y}}{\di{x}} &= v'(x)e^{-\int P(x)\di{x}} + v(x) \times -P(x)e^{-\int P(x)\di{x}} \\
+      Q(x) - P(x)\left( e^{\int u(x)\di{x}} \times e^{-\int P(x)\di{x}} \right) &= v'(x)e^{-\int P(x)\di{x}} - v(x)P(x)e^{-\int P(x)\di{x}} \\
+      Q(x) - v(x)P(x)e^{-\int P(x)\di{x}} &= v'(x)e^{-\int P(x)\di{x}} - v(x)P(x)e^{-\int P(x)\di{x}} \\
+      Q(x) &= v'(x)e^{-\int P(x)\di{x}} \\
+      \int Q(x)e^{\int P(x)\di{x}} = \int \frac{Q(x)}{e^{-\int P(x)\di{x}}} &= v(x) = e^{\int u(x)\di{x}} = \frac{y}{e^{-\int P(x)\di{x}}}  \\
+      \int Q(x)e^{\int P(x)\di{x}} \times e^{-\int P(x)\di{x}} &= y 
+    \end{aligned} \\
+  \end{gather*}
   \begin{gather*}
     y = ax \\
     y = bx \\
