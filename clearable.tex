@@ -7,9 +7,33 @@
 
 \newcommand\D[1]{\Delta{#1}}
 \newcommand\F[2]{\frac{#1}{#2}}
-\newcommand\di[1]{\text{d}#1}
+\newcommand\di[1]{\text{d}#1}74
 
 \begin{document}
+  \begin{gather*}
+    
+  \end{gather*}
+  \begin{gather*}
+    \frac{\di{y}}{\di{x}} - \frac{2y}{x + 1} = ( x + 1 )^{\frac{5}{2}} \\
+    \frac{\di{y}}{\di{x}} = \frac{2y}{x + 1} \\
+    \int\frac{\di{y}}{y} = \int\frac{2}{x + 1}\di{x} \\
+    \ln{\left\lvert y\right\rvert} = 2\ln{\left\lvert x + 1\right\rvert} + C_1 \\
+    y = C_1(x+1)^2 \\
+    u'(x)(x+1)^2 + 2u(x)(x+1) = (x + 1)^{\frac{5}{2}} + \frac{2u(x)(x+1)^2}{x+1} \\
+    u'(x) = \frac{(x+1)^{\frac{5}{2}}}{(x+1)^2} = (x+1)^{\frac{1}{2}} \\
+    u(x) = \frac{3}{2}(x+1)^{\frac{3}{2}} + C \\
+    y(x) = (\frac{3}{2}(x+1)^{\frac{3}{2}} + C)(x+1)^2
+    % \int( x + 1 )^{\frac{5}{2}}e^{\int\frac{-2}{x + 1}\di{x}}\di{x} \times e^{-\int\frac{-2}{x + 1}\di{x}} = y \\
+    % \int\frac{-2}{x+1} = -2\ln(x + 1) + C_1 \\
+    % \begin{aligned}
+    %   e^{\int\frac{-2}{x + 1}\di{x}}\di{x} &= e^{-2\ln(x + 1) + C_1} \\
+    %   &= (e^{\ln(x + 1)})^{-2}e^{C_1} \\
+    %   &= (x + 1)^{-2}e^{C_1}
+    % \end{aligned} \\
+    % \int( x + 1 )^{\frac{5}{2}}e^{-2\ln(x + 1) + C_1} \\
+    % \int( x + 1 )^{\frac{5}{2}}(x + 1)^{-2} \times e^{C_1} \\
+    % \left(\frac{2}{3}(x + 1)^{\frac{3}{2}} \times e^{C_1} + C_2\right) \times (x + 1)^2e^{C_3}
+  \end{gather*}
   \begin{gather*}
     y = Y(x) \qquad u(x) = \frac{Q(x)}{Y(x)} \qquad v(x) = e^{\int u(x)\di{x}}\\
     \begin{aligned}
@@ -24,8 +48,8 @@
       Q(x) - P(x)\left( e^{\int u(x)\di{x}} \times e^{-\int P(x)\di{x}} \right) &= v'(x)e^{-\int P(x)\di{x}} - v(x)P(x)e^{-\int P(x)\di{x}} \\
       Q(x) - v(x)P(x)e^{-\int P(x)\di{x}} &= v'(x)e^{-\int P(x)\di{x}} - v(x)P(x)e^{-\int P(x)\di{x}} \\
       Q(x) &= v'(x)e^{-\int P(x)\di{x}} \\
-      \int Q(x)e^{\int P(x)\di{x}} = \int \frac{Q(x)}{e^{-\int P(x)\di{x}}} &= v(x) = e^{\int u(x)\di{x}} = \frac{y}{e^{-\int P(x)\di{x}}}  \\
-      \int Q(x)e^{\int P(x)\di{x}} \times e^{-\int P(x)\di{x}} &= y 
+      \int Q(x)e^{\int P(x)\di{x}}\di{x} = \int \frac{Q(x)}{e^{-\int P(x)\di{x}}}\di{x} &= v(x) = e^{\int u(x)\di{x}} = \frac{y}{e^{-\int P(x)\di{x}}}  \\
+      \int Q(x)e^{\int P(x)\di{x}}\di{x} \times e^{-\int P(x)\di{x}} &= y 
     \end{aligned} \\
   \end{gather*}
   \begin{gather*}

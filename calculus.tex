@@ -1,9 +1,35 @@
 \documentclass{article}
 \usepackage[margin=1cm]{geometry}
 \usepackage{bm}
+
 \usepackage{amsmath}
+\usepackage{fontspec}
+\setmainfont{FandolSong-Regular.otf}
+
+\newcommand\D[1]{\Delta{#1}}
+\newcommand\F[2]{\frac{#1}{#2}}
+\newcommand\di[1]{\text{d}#1}
 
 \begin{document}
+  线性微分方程 常数变易法
+  \begin{gather*}
+    y = Y(x) \qquad u(x) = \frac{Q(x)}{Y(x)} \qquad v(x) = e^{\int u(x)\di{x}}\\
+    \begin{aligned}
+      \frac{\di{y}}{\di{x}} &= Q(x) - P(x)y \\
+      &= Q(x) - P(x)Y(x) \\
+      \frac{\di{y}}{Y(x)} &=  \left( \frac{Q(x)}{Y(x)} - P(x) \right)\di{x} \\
+      \int\frac{1}{Y(x)}\di{y} &= \int\left(u(x) - P(x)\right)\di{x} \\
+      \ln{y} &= \int\left(u(x) - P(x)\right)\di{x}\\
+      y &= e^{\int u(x)\di{x} -\int P(x)\di{x}} \\
+      &= e^{\int u(x)\di{x}} \times e^{-\int P(x)\di{x}} \\
+      \frac{\di{y}}{\di{x}} &= v'(x)e^{-\int P(x)\di{x}} + v(x) \times -P(x)e^{-\int P(x)\di{x}} \\
+      Q(x) - P(x)\left( e^{\int u(x)\di{x}} \times e^{-\int P(x)\di{x}} \right) &= v'(x)e^{-\int P(x)\di{x}} - v(x)P(x)e^{-\int P(x)\di{x}} \\
+      Q(x) - v(x)P(x)e^{-\int P(x)\di{x}} &= v'(x)e^{-\int P(x)\di{x}} - v(x)P(x)e^{-\int P(x)\di{x}} \\
+      Q(x) &= v'(x)e^{-\int P(x)\di{x}} \\
+      \int Q(x)e^{\int P(x)\di{x}}\di{x} = \int \frac{Q(x)}{e^{-\int P(x)\di{x}}}\di{x} &= v(x) = e^{\int u(x)\di{x}} = \frac{y}{e^{-\int P(x)\di{x}}}  \\
+      \int Q(x)e^{\int P(x)\di{x}}\di{x} \times e^{-\int P(x)\di{x}} &= y 
+    \end{aligned} \\
+  \end{gather*}
   \begin{align*}
     F\left(x\right) &= \int_{x}^{a} f\left(\frac{x}{2}\right) \,dx \\
     F'\left(x\right) &= \int_{x}^{a} f\left(\frac{x}{2}\right) \,dx
