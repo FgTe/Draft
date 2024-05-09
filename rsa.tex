@@ -1,0 +1,75 @@
+\documentclass{article}
+
+\usepackage[margin=1cm]{geometry}
+\usepackage{amsmath}
+\usepackage{fontspec}
+\setmainfont{FandolSong-Regular.otf}
+
+\begin{document}
+欧拉函数 \(\phi(n)\)为\((d \in N , 0<d<n \cap gcd(n,d)=1)\)中\(d\)的个数
+\begin{gather*}
+  n = q_1^{a_1}q_2^{a_3} \cdots q_m^{a_m} \\
+  \begin{aligned}
+  \phi(q_x^{a_x}) &= q_x^{a_x} - q_x^{a_x - 1} \\
+  &= q_x^{a_x-1}(q - 1)
+  \end{aligned} \\
+  \phi(n) = \prod_{x=1}^{m} \phi(q_x^{a_x})
+\end{gather*}
+
+欧拉定理
+\begin{gather*}
+  gcd(a,b) = 1 \\
+  a^{\phi(b)} \equiv 1 (mod\; b)
+\end{gather*}
+
+模反元素｜逆元
+\begin{gather*}
+  gcd(a,b) = 1 \\
+  ea \equiv 1 (mod\; b) \\
+  e\text{则为}a\text{的模反元素}
+\end{gather*}
+
+密钥
+\begin{gather*}
+  q,p\text{为素数} \\
+  n = qp \\
+  m = \phi(n) = (q-1)(p-1) \\
+  1<e<m \cap gcd(e,m) = 1 \\
+  de \equiv 1 (mod\; m) \\
+  \text{私钥}n,d \; \text{公钥}n,e
+\end{gather*}
+
+对x加密
+\begin{gather*}
+  y = x^e \; mod \; n
+\end{gather*}
+
+对y解密
+\begin{gather*}
+  x = y^d \; mod \; n
+\end{gather*}
+
+证明
+\begin{gather*}
+  \text{当}gcd(x, n)=1 \\
+  \begin{aligned}
+    x =& x^{ed} \; mod \; n \\
+    =& x^{km + 1} \; mod \; n \\
+    =& x^{km}x \; mod \; n \\
+    =& (x^{\phi(n)})^k x \; mod \; n \\
+  \end{aligned} \\
+  \\
+  \text{当}gcd(x,q)=q \cap gcd(x,p)=1 \\
+  x = k_1q \\
+  x^{\phi(p)} \equiv 1 (mod \; p) \\
+  x^{\phi(p)} = k_2p + 1 \\
+  \begin{aligned}
+    x =& x^{ed} \; mod \; n \\
+    =& x^{km+1} \; mod \; n \\
+    =& x^{k\phi(q)\phi(p)+1} \; mod \; n \\
+    =& (k_2p + 1)^{k}x \; mod \; n \\
+    =& \sum_{i=0}^{k}\frac{k!}{(k - i)!}(k_2q)^i \times x \; mod \; n
+  \end{aligned}
+\end{gather*}
+
+\end{document}

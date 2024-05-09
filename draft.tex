@@ -11,20 +11,125 @@
 \newcommand\di[1]{\text{d}#1}
 
 \begin{document}
-
 \begin{gather*}
-  M_1 = N_1 \\
-  d_n = 2n + 1 \\
-  N_n = d_{n-1} \times D_{n-1} + m_{n-1} \\
-  m_{n-1} = N_n - d_{n-1} \times D_{n-1} \\
+  gcd(x,y) = 1 \\
+  Ax + By = 1 \\
+  d < y \cap gcd(d, y) = 1 \\
+  dAx + dBy = d \\
+  nx + d = my \\
+  n_1a_1 + d_1 = m_1y \\
+  n_2a_2 + d_2 = m_2y
+\end{gather*}
+\begin{gather*}
+  gcd(a,b) = 1 \\
+  a = k_1b + r_1 \\
+  b = k_2r_1 + r_2 \\
+  r_1 = k_3r_2 + r_3 \\
+  r_2 = k_4r_3 + r_4 \\
+  r_3 = k_5r_4 + r_5 \\
+  \cdots \\
+  r_n = k_{n+2}r_{n+1} + r_{n+2} \\
   \begin{aligned}
-    M_{n+1} &= M_n - ( 2 \times D_{n-1} ) \\
-            &= N_1 - 2 ( D_1 + D_2 + \cdots + D_{n-1} )
+    r_n &= r_{n-2} - k_nr_{n-1} \\
+    &= r_{n-4} - k_{n-2}r_{n-3} - k_n(r_{n-3} - k_{n-1}r_{n-2}) \\
+    &= r_{n-4} - (k_{n-2} - k_n)r_{n-3} + k_nk_{n-1}r_{n-2} \\
+    &= r_{n-4} - (k_{n-2} - k_n)r_{n-3} + k_nk_{n-1}(r_{n-4} - k_{n-2}r_{n-3}) \\
+    &= (1 + k_nk_{n-1})r_{n-4} - (k_{n-2}-k_{n}+k_nk_{n-1}k_{n-2})r_{n-3}
+  \end{aligned}
+\end{gather*}
+\begin{gather*}
+  \sum_{d|n}\varphi(d) \\
+  a = nq \\
+  m = kq \\
+  a = t_1m + d \\
+  nq = t_1kq + d \\
+  a - m = (n-k)q \\
+  d = (n - t_1k)q \\
+  b = t_2m + d
+\end{gather*}
+\begin{gather*}
+  n = k_{0}m + d_{0} \\
+  a = k_{1}m + d_{1} \\
+  b = k_{2}m + d_{2} \\
+  gcd(n, m) = g \\
+  t_ng = t_mg + d_{0} \\
+  d_0 = (t_n - t_m)g \\
+  \begin{aligned}
+    an &= (k_{1}m + d_{1})(k_{0}m + d_{0}) \\
+      &= k_{1}k_{0}m^{2} + k_{1}md_{0} + k_{0}md_{1} + d_{1}d_{0} \\
+      &= (k_{1}k_{0}m + k_{1}d_{0} + k_{0}d_{1})m + d_{1}d_{0} \\
+      &= q_{1}m + d_{1}d_{0} \\
+    at_{n}g &= q_{1}t_{m}g + d_{1}d_{0}
   \end{aligned} \\
   \begin{aligned}
-    N_{n+1} &= M_n - ( 2 \times D_{n-1} ) + m_{n-1} \\
-            &= N_1 - 2( D_1 + D_2 + \cdots + D_{n-1} ) + ( m_1 + m_2 + \cdots + m_{n-1} )
-  \end{aligned}
+    bn &= (k_{2}m + d_{2})(k_{0}m + d_{0}) \\
+      &= k_{2}k_{0}m^{2} + k_{2}md_{0} + k_{0}md_{2} + d_{2}d_{0} \\
+      &= (k_{2}k_{0}m + k_{2}d_{0} + k_{0}d_{2})m + d_{2}d_{0} \\
+      &= q_{2}m + d_{2}d_{0} \\
+    bt_{n}g &= q_{2}t_{m}g + d_{1}d_{0}
+  \end{aligned} \\
+  (d_1 - d_2)d_0 = qt_mg \\
+  (d_1 - d_2) = \frac{qt_mg}{(t_n - t_m)g}
+\end{gather*}
+德雷姆因数分解
+\begin{gather*}
+  M_1 = N_1 \\
+  d_x = 2x + 1 \\
+  N_x = d_{x} \times D_{x} + m_{x} \\
+  \begin{aligned}
+    M_{x} &= M_{x-1} - (2 \times D_{x-1}) \\
+          &= N_1 - 2 (D_1 + D_2 + \cdots + D_{x-1})
+  \end{aligned} \\
+  \begin{aligned}
+    N_{x} &= M_{x} + m_{x-1} \\
+          &= N_1 - 2 (D_1 + D_2 + \cdots + D_{x-1}) + m_{x-1} \\
+          &= N_1 - 2 (D_1 + D_2 + \cdots + D_{x-1}) + (x-1)N_1 - (2(x-1) + 1)(D_1 + D_2 + \cdots + D_{x - 1}) \\
+          &= xN_1 - (2x + 1)(D_1 + D_2 + \cdots + D_{x-1})
+  \end{aligned} \\
+  \text{当}m_z = 0 \\
+  N_z = M_z \\
+  \begin{aligned}
+    N_z &= zN_1 - (2z + 1)(D_1 + D_2 + \cdots + D_{z - 1}) \\
+    \frac{zN_1 - N_z}{(2z + 1)} &= (D_1 + D_2 + \cdots + D_{z - 1}) \\
+  \end{aligned} \\
+  \begin{aligned}
+    M_z &= N_1 - 2(D_1 + D_2 + \cdots + D_{z - 1}) \\
+    M_z &= N_1 - 2\frac{zN_1 - N_z}{(2z + 1)} \\
+    M_z + 2\frac{zN_1 - M_z}{(2z + 1)} &= N_1 \\
+    \frac{(2z + 1)M_z + 2zN_1 - 2M_z}{(2z + 1)} &= N_1 \\
+    \frac{2zM_z + M_z + 2zN_1 - 2M_z}{(2z + 1)} &= N_1 \\
+    \frac{2zM_z - M_z}{(2z + 1)} + \frac{2zN_1}{(2z + 1)} &= N_1 \\
+    (2z - 1)M_z + 2zN_1 &= N_1(2z + 1) \\
+    (2z-1)M_z &= N_1 \\
+    (2(z - 1) + 1)M_z &= N_1
+  \end{aligned} \\
+  \begin{aligned}
+    m_{x} &= N_x - d_x \times D_x \\
+          &= N_x - (2x + 1) \times D_x \\
+          &= M_x + m_{x-1} - (2x + 1) \times D_x \\
+          &= M_x + N_{x-1} - (2(x-1) + 1) \times D_{x - 1} - (2x + 1) \times D_x \\
+          &= M_x + M_{x-1} + m_{x-2} - (2(x-1) + 1) \times D_{x - 1} - (2x + 1) \times D_x \\
+          &= M_x + M_{x-1} + \cdots M_2 + m_1 - [(2 \times 2) + 1] \times D_{2} - \cdots - [2(x-1) + 1] \times D_{x - 1} - (2x + 1) \times D_x \\
+          &= M_x + M_{x-1} + \cdots M_2 + M_1 - (2 + 1) \times D_1 - [(2 \times 2) + 1] \times D_{2} - \cdots - [2(x-1) + 1] \times D_{x - 1} - (2x + 1) \times D_x \\
+          &= M_x + M_{x-1} + \cdots M_2 + M_1 - 2(1 \times D_1 + 2 \times D_{2} + \cdots + (x - 1) \times D_{x - 1}) - (D_1 + D_2 + \cdots + D_{x - 1}) - (2x + 1) \times D_x \\
+          &=\quad N_1 - 2(D_1 + D_2 + \cdots + D_{x - 1}) \\
+          &\quad + N_1 - 2(D_1 + D2 + \cdots + D_{x - 2}) \\
+          &\quad + \cdots \\
+          &\quad + N_1 - 2(D_1) \\
+          &\quad + N_1 \\
+          &\quad - 2(1 \times D_1 + 2 \times D_{2} + \cdots + (x - 1) \times D_{x - 1}) - (D_1 + D_2 + \cdots + D_{x - 1}) - (2x + 1) \times D_x \\
+          &= xN_1 - 2[(x - 1) \times D_1 + (x - 2) \times D_2 + \cdots D_{x-1}] \\
+          &\quad - 2[1 \times D_1 + 2 \times D_{2} + \cdots + (x - 1) \times D_{x - 1}] - (D_1 + D_2 + \cdots + D_{x - 1}) - (2x + 1) \times D_x \\
+          &= xN_1 - 2x(D_1 + D_2 + \cdots D_{x-1}) \\
+          &\quad - (D_1 + D_2 + \cdots + D_{x - 1}) - (2x + 1) \times D_x \\
+          &= xN_1 - (2x + 1)(D_1 + D_2 + \cdots + D_x)
+          % &= (M_1 + M_2 + \cdots M_x) - [(2 \times 1 + 1) \times D_1 + (2 \times 3 + 1) \times D_2 + \cdots + (2x + 1) \times D_x] \\
+          % &= (M_1 + M_2 + \cdots M_x) - 2(1 \times D_1 + 2 \times D_2 + \cdots + x \times D_x ) + (D_1 + D_2 + \cdots + D_x) \\
+          % &= (N_1 - 2(D_1) + N_1 - 2(D_1 + D_2) + \cdots N_1 - 2(D_1 + D_2 + \cdots + D_{x-1})) \\
+          % &\quad  - 2(1 \times D_1 + 2 \times D_2 + \cdots + x \times D_x ) + (D_1 + D_2 + \cdots + D_x)
+          % &= (N_1 - 2(D_1) + N_1 - 2(D_1 + D_2) + \cdots N_1 - 2(D_1 + D_2 + \cdots + D_{x-1})) \\
+          % &\quad  - 2(1 \times D_1 + 2 \times D_2 + \cdots + (x - 1) \times D_{x-1} ) - 2x \times D_x + (D_1 + D_2 + \cdots + D_{x - 1} + D_x)
+  \end{aligned} \\
 \end{gather*}
 
 \begin{gather*}
