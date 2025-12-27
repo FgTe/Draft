@@ -12,6 +12,24 @@
 \begin{document}
   \begin{gather*}
     \begin{aligned}
+      f(\alpha) =& 4 - ( A - \frac{\frac{2}{\cos(\alpha)}-2}{\tan(\alpha)} ) \tan(\alpha) \\
+      =&4 - A\tan(\alpha) + \frac{2}{\cos(\alpha)}-2 \\
+      =&2- A\tan(\alpha) + \frac{2}{\cos(\alpha)} \\
+      g(\alpha) =& \frac{2 - f(\alpha)}{\tan(\alpha)} \\
+      h(\alpha) =& A - g(\alpha) \\
+      j(\alpha) =& h(\alpha) \cos(\alpha) \\
+      k(\alpha) =& 2 \tan(\alpha) \\
+      y(\alpha) =& j(\alpha) - k(\alpha) \\
+      z(\alpha) =& y(\alpha) + ( 2 - f(\alpha) )\sin(\alpha) + g(\alpha)\sin(\alpha) \\
+      =& j(\alpha) - k(\alpha) + (2-f(\alpha))\sin(alpha) + \frac{2 - f(\alpha)}{\tan(\alpha)}\sin(\alpha) \\
+      =& h(\alpha)\cos(\alpha) - 2\tan(\alpha) + (2-f(\alpha))\sin(\alpha) + (2 - f(\alpha))\cos(\alpha) \\
+      =& (A-\frac{2 - f(\alpha)}{\tan(\alpha)})\cos(\alpha) - 2\tan(\alpha) + (2-f(\alpha))(\sin(\alpha)+\cos(\alpha)) \\
+      =& A\cos(\alpha)-(2 - f(\alpha))\frac{\cos(\alpha)}{\tan(\alpha)} - 2\tan(\alpha) + (2-f(\alpha))(\sin(\alpha)+\cos(\alpha))
+      =& A\cos(\alpha)- 2\tan(\alpha) - (2-f(\alpha))(\frac{\cos(\alpha)}{\tan(\alpha)}(\sin(\alpha)+\cos(\alpha)))
+    \end{aligned}
+  \end{gather*}
+  \begin{gather*}
+    \begin{aligned}
       f(\alpha) =&\frac{\frac{2}{\cos(\alpha)}-2}{\tan(\alpha)} \\
       =&\frac{\cos(\alpha)(\frac{2}{\cos(\alpha)}-2)}{\sin(\alpha)} \\
       =&\frac{2-2\cos(\alpha)}{\sin(\alpha)} \\
