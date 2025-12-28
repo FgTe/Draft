@@ -21,11 +21,15 @@
       k(\alpha) =& 2 \tan(\alpha) \\
       y(\alpha) =& j(\alpha) - k(\alpha) \\
       z(\alpha) =& y(\alpha) + ( 2 - f(\alpha) )\sin(\alpha) + g(\alpha)\sin(\alpha) \\
-      =& j(\alpha) - k(\alpha) + (2-f(\alpha))\sin(alpha) + \frac{2 - f(\alpha)}{\tan(\alpha)}\sin(\alpha) \\
+      =& j(\alpha) - k(\alpha) + (2-f(\alpha))\sin(\alpha) + \frac{2 - f(\alpha)}{\tan(\alpha)}\sin(\alpha) \\
       =& h(\alpha)\cos(\alpha) - 2\tan(\alpha) + (2-f(\alpha))\sin(\alpha) + (2 - f(\alpha))\cos(\alpha) \\
       =& (A-\frac{2 - f(\alpha)}{\tan(\alpha)})\cos(\alpha) - 2\tan(\alpha) + (2-f(\alpha))(\sin(\alpha)+\cos(\alpha)) \\
-      =& A\cos(\alpha)-(2 - f(\alpha))\frac{\cos(\alpha)}{\tan(\alpha)} - 2\tan(\alpha) + (2-f(\alpha))(\sin(\alpha)+\cos(\alpha))
-      =& A\cos(\alpha)- 2\tan(\alpha) - (2-f(\alpha))(\frac{\cos(\alpha)}{\tan(\alpha)}(\sin(\alpha)+\cos(\alpha)))
+      =& A\cos(\alpha)-(2 - f(\alpha))\frac{\cos(\alpha)}{\tan(\alpha)} - 2\tan(\alpha) + (2-f(\alpha))(\sin(\alpha)+\cos(\alpha)) \\
+      =& A\cos(\alpha)- 2\tan(\alpha) - (2-f(\alpha))(\frac{\cos(\alpha)}{\tan(\alpha)} - \sin(\alpha)-\cos(\alpha)) \\
+      =& A\cos(\alpha)- 2\tan(\alpha) - (2-(2- A\tan(\alpha) + \frac{2}{\cos(\alpha)}))(\frac{\cos(\alpha)}{\tan(\alpha)} - \sin(\alpha)-\cos(\alpha)) \\
+      =& A\cos(\alpha)- 2\tan(\alpha) - (A\tan(\alpha) - \frac{2}{\cos(\alpha)})(\frac{\cos^2(\alpha)}{\sin(\alpha)} - \sin(\alpha)-\cos(\alpha)) \\
+      =& A\cos(\alpha)- 2\tan(\alpha) - A\cos(\alpha) + A\tan(\alpha)\sin(\alpha) + A\sin(\alpha) + \frac{2\cos(\alpha)}{\sin(\alpha)}-2\tan(\alpha)-2 \\
+      =& - 2\tan(\alpha) + A\tan(\alpha)\sin(\alpha) + A\sin(\alpha) + \frac{2\cos(\alpha)}{\sin(\alpha)}-2\tan(\alpha)-2
     \end{aligned}
   \end{gather*}
   \begin{gather*}
